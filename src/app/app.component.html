@@ -1,0 +1,73 @@
+<div class="navigation col-lg-12">
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+
+            <div class="navbar-header">
+                <a [routerLink]="['/home']" class="navbar-brand">{{title}}</a>
+            </div>
+
+            <ul class="nav nav navbar-nav menu" *ngIf="identity">
+              
+                <li>
+                    <a [routerLink]="['/timeline']" [routerLinkActive]="['active']">
+                        <span class="fas fa-th-list"> Timeline</span>
+                    </a>
+                </li>
+                <li>
+                    <a [routerLink]="['/users']" [routerLinkActive]="['active']">
+                        <span class="fas fa-user"> Users</span>
+                    </a>
+                </li>
+                <li>
+                    <a [routerLink]="['/messages']" [routerLinkActive]="['active']">
+                        <span class="fas fa-envelope"> Messages</span>
+                    </a>
+                </li>
+            </ul>
+
+            <ul class="nav navbar navbar-nav navbar-right" *ngIf="!identity">
+                <li>
+                    <a [routerLink]="['/login']" [routerLinkActive]="['active']">
+                        <span class="fas fa-sign-in-alt"> Login</span>
+                    </a>
+                </li>
+                <li>
+                    <a [routerLink]="['/register']" [routerLinkActive]="['active']">
+                        <span class="fas fa-user"> Register</span>
+                    </a>
+                </li>
+            </ul>
+            <!-- DROPDOWN MENU -->
+
+            <ul class="nav navbar-nav navbar-right" *ngIf="identity">
+                <li class="avatar">
+                    <!-- Load IMAGE of User -->
+                    <img src="{{url+'get-image/'+identity.image}}" *ngIf="identity && identity.image">
+                </li>
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown">
+                        {{identity.nick}} <span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li>
+                            <a  [routerLinkActive]="['active']" [routerLink]="['/profile', identity._id]" > <span class="fas fa-user"></span> My profile</a>
+                        </li>
+                        <li>
+                            <a [routerLink]="['/edit']" [routerLinkActive]="['active']"><span class="fas fa-file-alt"></span> My data</a>
+                        </li>
+                        <li>
+                            <a href="#" class="pointer" (click)="logout()"><span class="fas fa-sign-out-alt"></span> Log out</a>
+                        </li>
+                    </ul>
+
+                </li>
+            </ul>
+
+        </div>
+    </nav>
+</div>
+<div class="nav cover">
+
+</div>
+
+<router-outlet></router-outlet>

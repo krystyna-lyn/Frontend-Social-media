@@ -1,0 +1,22 @@
+<div class="col-lg-8 col-lg-offset-2">
+
+    <div class="jumbotron">
+        <h1>{{title}}</h1>
+        <p>Enjoy of publications your friends and share yours</p>
+
+        <p>
+            <a class="btn btn-primary btn-lg" role="button" [routerLink]="['/profile', identity._id]" >
+                My profile
+            </a>
+            <a class="btn btn-primary btn-lg" role="button" [routerLink]="['/timeline']">
+                Timeline
+            </a>
+            <a class="btn btn-primary btn-lg" role="button"  [routerLink]="['/users']">
+                People
+            </a>
+        </p>
+
+
+    </div>
+
+</div>

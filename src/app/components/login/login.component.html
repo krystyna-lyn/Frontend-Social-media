@@ -1,0 +1,29 @@
+<div class="col-lg-5">
+    <h1 class="title">{{title}}</h1>
+    <!-- errors-->
+    <div class="alert alert-success" *ngIf='status=="success"'>
+        Welcome to Social media!
+    </div>
+
+    <div class="alert alert-danger" *ngIf='status=="error"'>
+        Email or password is failed. Try another one or <a [routerLink]="['/register']">Register here</a>
+    </div>
+
+    <!-- FORM-->
+    <form #loginForm="ngForm" (ngSubmit)="onSubmit()" class="col-lg-5">
+        <p>
+            <label>Email</label>
+            <input type="text" name="name" #email="ngModel" [(ngModel)]="user.email" class="form-control" required
+                pattern="">
+            <span *ngIf="!email.valid && email.touched">Email not valid</span>
+        </p>
+
+        <p>
+            <label>Password</label>
+            <input type="password" name="password" #password="ngModel" [(ngModel)]="user.password" class="form-control"
+                required>
+            <span *ngIf='!password.valid && password.touched'>password not valid</span>
+        </p>
+        <input type="submit" value="Send" class="btn btn-success" [disabled]='!loginForm.form.valid'>
+    </form>
+</div>

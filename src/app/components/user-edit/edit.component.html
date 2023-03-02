@@ -1,0 +1,47 @@
+<div class="col-lg-5">
+
+    <h1 class="title">{{title}} </h1>
+
+    <div class="alert alert-success" *ngIf="status=='success'">
+        Updated successfully!
+    </div>
+
+    <div class="alert alert-danger" *ngIf="status=='error'">
+       Error! Cannot update data!
+    </div>
+
+    <form #userEditForm="ngForm" (ngSubmit)="ngSubmit()" class="col-lg-12">
+        <p>
+            <label>Nombre</label>
+            <input type="text" name="name" #name="ngModel" [(ngModel)]="user.name" required class="form-control">
+            <span *ngIf="!name.value && name.touched">Name is required</span>
+        </p>
+        <p>
+            <label>Surname</label>
+            <input type="text" name="surname" #surname="ngModel" [(ngModel)]="user.surname" required class="form-control"> 
+            <span *ngIf="!surname.value && surname.touched">Surname is required</span>
+        </p>
+        <p>
+            <label>Nick</label>
+            <input type="text" name="nick" #nick="ngModel" [(ngModel)]="user.nick" required class="form-control">
+            <span *ngIf="!nick.value && nick.touched">Nick is required</span>
+        </p>
+        <p>
+            <label>Email</label>
+            <input type="text" name="email" #email="ngModel" [(ngModel)]="user.email" required class="form-control">
+            <span *ngIf="!email.value && email.touched">Email is required</span>
+        </p>
+<div *ngIf="user.image">
+    <img src="{{url+'get-image/'+user.image}}" class="img-responsive"/>
+
+</div>
+        <p>
+            <label>Upload your photo</label>
+            <input type="file" placeholder="upload photo" (change)="fileChangeEvent($event)"/>
+            
+        </p>
+        
+
+        <input type="submit" value="{{title}}" class="btn btn-warning" [disabled]="!userEditForm.form.valid">
+    </form>
+</div>
