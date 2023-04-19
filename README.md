@@ -1,4 +1,4 @@
-<img src="https://github.com/krystyna-lyn/krystyna-portfolio.github.io/blob/master/images/project-3.png" alt="project">
+<img src="https://github.com/krystyna-lyn/krystyna-portfolio.github.io/blob/master/images/project-3.jpg" alt="project">
 
 # Client
 
