@@ -1,3 +1,5 @@
+<img src="https://github.com/krystyna-lyn/krystyna-portfolio.github.io/blob/master/images/project-3.png" alt="project">
+
 # Client
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.2.3.
